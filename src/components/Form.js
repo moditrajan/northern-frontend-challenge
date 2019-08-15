@@ -8,6 +8,7 @@ const Form = () => {
     "Graphic Design",
     "Marketing"
   ];
+  const [buttonDisable, setButtonState] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState("");
   const [buttonText, setText] = useState("Sign Up Now \u25BA");
@@ -32,13 +33,13 @@ const Form = () => {
     e.preventDefault();
 
     if (!validateEmail(email)) {
-      console.log(errors);
     } else {
       console.log("The email is: ", email);
       console.log("The position is: ", position);
       setText("Submitting...");
+      setButtonState(true);
       setTimeout(() => {
-        //setSuccess(true);
+        setSuccess(true);
       }, 2000);
     }
   }
@@ -51,8 +52,8 @@ const Form = () => {
     <div>
       <p className="paragraph">
         {" "}
-        Prepare for your career with a a Project Management, Web-Development,
-        Graphic design, or Digital Marketing Internship at Northern
+        Prepare for your career with a Project Management, Web-Development,
+        Graphic design, or Digital Marketing Internship at Northern.
       </p>
       <form>
         <div className="errors">{errors}</div>
@@ -60,6 +61,7 @@ const Form = () => {
           <input
             type="email"
             required
+            placeholder="Your Email Address *"
             name="email"
             value={email}
             onChange={e => onChange(e)}
@@ -82,7 +84,12 @@ const Form = () => {
             ))}
           </select>
         </div>
-        <button type="submit" className="mySubmit" onClick={handleSubmit}>
+        <button
+          type="submit"
+          className="mySubmit"
+          onClick={handleSubmit}
+          disabled={buttonDisable}
+        >
           {buttonText}
         </button>
       </form>

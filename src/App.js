@@ -9,12 +9,14 @@ import ThankYouMessage from "./components/ThankYouMessage";
 function App() {
   return (
     <Router>
-      <Header />
-      <div className="container">
-        <Switch>
-          <Route exact path="/" component={Form} />
-          <Route exact path="/thankyou" component={ThankYouMessage} />
-        </Switch>
+      <div className="App">
+        <Header />
+        <div className="container">
+          <Switch>
+            <Route exact path="/" component={Form} />
+            <Route exact path="/thankyou" component={ThankYouMessage} />
+          </Switch>
+        </div>
       </div>
     </Router>
   );

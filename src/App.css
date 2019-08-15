@@ -33,12 +33,10 @@ body {
 }
 
 .container {
-  display: flex;
   padding-top: 55px;
   max-width: 950px;
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
+  margin: auto;
+  text-align: center;
 }
 
 .paragraph {
